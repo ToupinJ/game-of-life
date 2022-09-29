@@ -1,5 +1,14 @@
-<script setup lang="ts">
+<script lang="ts">
+import GridGame from './components/GridGame.vue';
 import HomeView from './components/HomeView.vue'
+
+export default {
+  name: 'App',
+  components: {
+    'grid-game': GridGame,
+    'home-view': HomeView,
+  }
+}
 </script>
 
 <template>
@@ -7,12 +16,15 @@ import HomeView from './components/HomeView.vue'
     <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <HomeView msg="Game of life!" />
+      <home-view msg="Game of life!" />
     </div>
   </header>
 
   <main>
-    <TheWelcome />
+    <grid-game
+      message="coucou"
+      :current-speed="10"
+     />
   </main>
 </template>
 
