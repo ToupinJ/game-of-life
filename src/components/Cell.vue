@@ -1,9 +1,9 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div
-    :class="isAlive.isAlive ? 'alive' : 'dead'"
+    :class="state.isAlive ? 'alive' : 'dead'"
     class="cell"
-    @mousedown="reborn()"
+    @click="changeCellState()"
     />
 </template>
 <script lang="ts">
@@ -18,14 +18,14 @@ export default defineComponent({
     },
   },
   setup(props) {
-    let isAlive = reactive(props.statusObj)
+    let state = reactive(props.statusObj)
     return {
-      isAlive
+      state
     }
   },
   methods: {
-    reborn: function() {
-      this.isAlive.isAlive = !this.isAlive.isAlive;
+    changeCellState() {
+      this.state.isAlive = !this.state.isAlive;
     },
   },
 });
